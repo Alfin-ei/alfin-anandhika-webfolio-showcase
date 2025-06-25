@@ -8,7 +8,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.htmlCss'),
-      icon: <Globe className="text-blue-600" size={24} />,
+      icon: <Globe className="deep-space-primary" size={24} />,
       skills: language === 'id' ? 
         ["HTML5 Dasar", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"] :
         ["Basic HTML5", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"],
@@ -16,7 +16,7 @@ const Skills = () => {
     },
     {
       title: t('skills.javascript'),
-      icon: <Code2 className="text-yellow-600" size={24} />,
+      icon: <Code2 className="deep-space-accent" size={24} />,
       skills: language === 'id' ?
         ["JavaScript Dasar", "DOM Manipulation", "Event Handling", "ES6 Basics"] :
         ["Basic JavaScript", "DOM Manipulation", "Event Handling", "ES6 Basics"],
@@ -24,7 +24,7 @@ const Skills = () => {
     },
     {
       title: t('skills.react'),
-      icon: <Database className="text-cyan-600" size={24} />,
+      icon: <Database className="deep-space-secondary" size={24} />,
       skills: language === 'id' ?
         ["Komponen Dasar", "Props & State", "React Hooks", "Event Handling"] :
         ["Basic Components", "Props & State", "React Hooks", "Event Handling"],
@@ -32,7 +32,7 @@ const Skills = () => {
     },
     {
       title: t('skills.tools'),
-      icon: <Palette className="text-green-600" size={24} />,
+      icon: <Palette className="text-green-400" size={24} />,
       skills: language === 'id' ?
         ["VS Code", "Git (Dasar)", "Browser DevTools", "Tailwind CSS"] :
         ["VS Code", "Git (Basic)", "Browser DevTools", "Tailwind CSS"],
@@ -40,13 +40,13 @@ const Skills = () => {
     },
     {
       title: t('skills.learning'),
-      icon: <BookOpen className="text-purple-600" size={24} />,
+      icon: <BookOpen className="text-purple-400" size={24} />,
       skills: ["Node.js", "Express.js", "Database", "API"],
       level: t('skills.level.dalamProses')
     },
     {
       title: t('skills.softSkills'),
-      icon: <Smartphone className="text-orange-600" size={24} />,
+      icon: <Smartphone className="text-orange-400" size={24} />,
       skills: language === 'id' ?
         ["Semangat Belajar", "Problem Solving", "Google-fu", "YouTube University"] :
         ["Learning Enthusiasm", "Problem Solving", "Google-fu", "YouTube University"],
@@ -55,30 +55,30 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-20 deep-space-surface">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('skills.title')}</h2>
-            <p className="text-lg text-gray-600">{t('skills.subtitle')}</p>
+            <h2 className="text-4xl font-bold deep-space-text mb-4">{t('skills.title')}</h2>
+            <p className="text-lg text-gray-400">{t('skills.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+              <div key={index} className="deep-space-bg p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
                 <div className="flex items-center gap-3 mb-4">
                   {category.icon}
-                  <h3 className="text-xl font-semibold text-gray-900">{category.title}</h3>
+                  <h3 className="text-xl font-semibold deep-space-text">{category.title}</h3>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full">
+                  <span className="inline-block bg-purple-900/30 text-purple-300 text-sm px-3 py-1 rounded-full">
                     {category.level}
                   </span>
                 </div>
                 <ul className="space-y-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <li key={skillIndex} className="text-gray-700 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                    <li key={skillIndex} className="text-gray-300 flex items-center gap-2">
+                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
                       {skill}
                     </li>
                   ))}
@@ -88,12 +88,12 @@ const Skills = () => {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-4">{t('skills.disclaimer.title')}</h3>
-              <p className="text-gray-700 leading-relaxed mb-4">
+            <div className="deep-space-bg p-8 rounded-lg border border-gray-700 max-w-2xl mx-auto">
+              <h3 className="text-2xl font-semibold deep-space-text mb-4">{t('skills.disclaimer.title')}</h3>
+              <p className="text-gray-300 leading-relaxed mb-4">
                 {t('skills.disclaimer.desc1')}
               </p>
-              <p className="text-gray-700 leading-relaxed">
+              <p className="text-gray-300 leading-relaxed">
                 {t('skills.disclaimer.desc2')}
               </p>
             </div>

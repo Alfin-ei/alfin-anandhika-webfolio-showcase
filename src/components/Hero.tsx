@@ -11,20 +11,20 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-green-50 pt-20">
+    <section id="home" className="min-h-screen flex items-center justify-center deep-space-bg pt-20">
       <div className="container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 animate-fade-in">
-            <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-blue-500 to-green-500 flex items-center justify-center">
+            <div className="w-32 h-32 mx-auto mb-8 rounded-full deep-space-gradient flex items-center justify-center">
               <Code size={48} className="text-white" />
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-4">
-              Hi, I'm <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Alfin</span>
+            <h1 className="text-5xl md:text-6xl font-bold deep-space-text mb-4">
+              Hi, I'm <span className="deep-space-gradient bg-clip-text text-transparent">Alfin</span>
             </h1>
-            <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
+            <h2 className="text-2xl md:text-3xl text-gray-400 mb-6">
               {t('hero.title')}
             </h2>
-            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto">
               {t('hero.description')}
             </p>
           </div>
@@ -32,32 +32,32 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12">
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
+              className="px-8 py-3 deep-space-gradient text-white rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/25 transform hover:scale-105 transition-all duration-200"
             >
               {t('hero.viewPortfolio')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
+              className="px-8 py-3 border-2 border-purple-500 text-purple-400 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-200"
             >
               {t('hero.contactMe')}
             </button>
           </div>
 
-          <div className="flex justify-center items-center gap-6 text-gray-600">
+          <div className="flex justify-center items-center gap-6 text-gray-400">
             <div className="flex items-center gap-2">
-              <Coffee size={20} />
+              <Coffee size={20} className="deep-space-accent" />
               <span>{t('hero.fueledByCoffee')}</span>
             </div>
             <div className="flex items-center gap-2">
-              <Code size={20} />
+              <Code size={20} className="deep-space-accent" />
               <span>{t('hero.passionateCoder')}</span>
             </div>
           </div>
 
           <div className="mt-12 animate-bounce">
             <button onClick={() => scrollToSection('about')}>
-              <ArrowDown size={24} className="text-gray-400 hover:text-blue-600 transition-colors" />
+              <ArrowDown size={24} className="text-gray-400 hover:text-purple-400 transition-colors" />
             </button>
           </div>
         </div>
