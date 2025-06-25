@@ -1,9 +1,11 @@
 
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Languages } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -20,21 +22,30 @@ const Navigation = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             <button onClick={() => scrollToSection('home')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Home
+              {t('nav.home')}
             </button>
             <button onClick={() => scrollToSection('about')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              About
+              {t('nav.about')}
             </button>
             <button onClick={() => scrollToSection('skills')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Skills
+              {t('nav.skills')}
             </button>
             <button onClick={() => scrollToSection('portfolio')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Portfolio
+              {t('nav.portfolio')}
             </button>
             <button onClick={() => scrollToSection('contact')} className="text-gray-700 hover:text-blue-600 transition-colors">
-              Contact
+              {t('nav.contact')}
+            </button>
+            
+            {/* Language Toggle */}
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors"
+            >
+              <Languages size={16} />
+              <span className="text-sm font-medium">{language.toUpperCase()}</span>
             </button>
           </div>
 
@@ -52,19 +63,28 @@ const Navigation = () => {
           <div className="md:hidden mt-4 py-4 border-t border-gray-200">
             <div className="flex flex-col space-y-4">
               <button onClick={() => scrollToSection('home')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
-                Home
+                {t('nav.home')}
               </button>
               <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
-                About
+                {t('nav.about')}
               </button>
               <button onClick={() => scrollToSection('skills')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
-                Skills
+                {t('nav.skills')}
               </button>
               <button onClick={() => scrollToSection('portfolio')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
-                Portfolio
+                {t('nav.portfolio')}
               </button>
               <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 transition-colors">
-                Contact
+                {t('nav.contact')}
+              </button>
+              
+              {/* Mobile Language Toggle */}
+              <button
+                onClick={toggleLanguage}
+                className="flex items-center gap-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors w-fit"
+              >
+                <Languages size={16} />
+                <span className="text-sm font-medium">{language.toUpperCase()}</span>
               </button>
             </div>
           </div>

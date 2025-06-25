@@ -1,7 +1,10 @@
 
 import { ArrowDown, Code, Coffee } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Hero = () => {
+  const { t } = useLanguage();
+  
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -19,11 +22,10 @@ const Hero = () => {
               Hi, I'm <span className="bg-gradient-to-r from-blue-600 to-green-600 bg-clip-text text-transparent">Alfin</span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-gray-600 mb-6">
-              Web Developer Pemula
+              {t('hero.title')}
             </h2>
             <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-              Seorang developer muda yang bersemangat belajar dan mengembangkan kemampuan dalam dunia web development. 
-              Siap untuk menghadapi tantangan baru dan berkontribusi dalam proyek-proyek menarik.
+              {t('hero.description')}
             </p>
           </div>
 
@@ -32,24 +34,24 @@ const Hero = () => {
               onClick={() => scrollToSection('portfolio')}
               className="px-8 py-3 bg-gradient-to-r from-blue-600 to-green-600 text-white rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200"
             >
-              Lihat Portfolio
+              {t('hero.viewPortfolio')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="px-8 py-3 border-2 border-blue-600 text-blue-600 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200"
             >
-              Hubungi Saya
+              {t('hero.contactMe')}
             </button>
           </div>
 
           <div className="flex justify-center items-center gap-6 text-gray-600">
             <div className="flex items-center gap-2">
               <Coffee size={20} />
-              <span>Fueled by Coffee</span>
+              <span>{t('hero.fueledByCoffee')}</span>
             </div>
             <div className="flex items-center gap-2">
               <Code size={20} />
-              <span>Passionate Coder</span>
+              <span>{t('hero.passionateCoder')}</span>
             </div>
           </div>
 

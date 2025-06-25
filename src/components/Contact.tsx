@@ -2,6 +2,7 @@
 import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-react';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -10,10 +11,10 @@ const Contact = () => {
     message: ''
   });
   const { toast } = useToast();
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to a server
     toast({
       title: "Pesan Terkirim!",
       description: "Terima kasih atas pesan Anda. Saya akan merespon segera.",
@@ -33,17 +34,16 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Hubungi Saya</h2>
-            <p className="text-lg text-gray-600">Mari berkolaborasi atau sekadar ngobrol tentang web development!</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('contact.title')}</h2>
+            <p className="text-lg text-gray-600">{t('contact.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Mari Terhubung</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t('contact.connectTitle')}</h3>
               <p className="text-gray-700 mb-8 leading-relaxed">
-                Saya selalu terbuka untuk diskusi tentang teknologi, kolaborasi project, atau bahkan 
-                sekadar bertukar pengalaman sesama developer. Jangan ragu untuk menghubungi saya!
+                {t('contact.connectDesc')}
               </p>
 
               <div className="space-y-6">
@@ -52,7 +52,7 @@ const Contact = () => {
                     <Mail className="text-blue-600" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Email</p>
+                    <p className="font-semibold text-gray-900">{t('contact.email')}</p>
                     <p className="text-gray-600">anandhikaalfin@gmail.com</p>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ const Contact = () => {
                     <MessageCircle className="text-green-600" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">WhatsApp</p>
+                    <p className="font-semibold text-gray-900">{t('contact.whatsapp')}</p>
                     <p className="text-gray-600">+62 823-8397-3992</p>
                   </div>
                 </div>
@@ -72,29 +72,27 @@ const Contact = () => {
                     <MapPin className="text-purple-600" size={20} />
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-900">Lokasi</p>
+                    <p className="font-semibold text-gray-900">{t('contact.location')}</p>
                     <p className="text-gray-600">Batam, Indonesia</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8 p-6 bg-white rounded-lg shadow-md">
-                <h4 className="font-semibold text-gray-900 mb-3">Waktu Terbaik untuk Dihubungi</h4>
-                <p className="text-gray-600 text-sm">
-                  Senin - Jumat: 09:00 - 17:00 WIB<br />
-                  Sabtu: 10:00 - 15:00 WIB<br />
-                  Response time: Maksimal 24 jam
+                <h4 className="font-semibold text-gray-900 mb-3">{t('contact.bestTime')}</h4>
+                <p className="text-gray-600 text-sm whitespace-pre-line">
+                  {t('contact.schedule')}
                 </p>
               </div>
             </div>
 
             {/* Contact Form */}
             <div className="bg-white p-8 rounded-lg shadow-md">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Kirim Pesan</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t('contact.sendMessage')}</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                    Nama Lengkap
+                    {t('contact.name')}
                   </label>
                   <input
                     type="text"
@@ -104,13 +102,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="Masukkan nama lengkap Anda"
+                    placeholder={t('contact.namePlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                    Email
+                    {t('contact.email')}
                   </label>
                   <input
                     type="email"
@@ -120,13 +118,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
-                    placeholder="nama@email.com"
+                    placeholder={t('contact.emailPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Pesan
+                    {t('contact.message')}
                   </label>
                   <textarea
                     id="message"
@@ -136,7 +134,7 @@ const Contact = () => {
                     required
                     rows={5}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
-                    placeholder="Tulis pesan Anda di sini..."
+                    placeholder={t('contact.messagePlaceholder')}
                   />
                 </div>
 
@@ -145,7 +143,7 @@ const Contact = () => {
                   className="w-full bg-gradient-to-r from-blue-600 to-green-600 text-white py-3 px-6 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center gap-2"
                 >
                   <Send size={20} />
-                  Kirim Pesan
+                  {t('contact.send')}
                 </button>
               </form>
             </div>
@@ -155,10 +153,10 @@ const Contact = () => {
           <div className="mt-16 text-center border-t border-gray-200 pt-8">
             <div className="mb-4">
               <h4 className="text-lg font-semibold text-gray-900 mb-2">Alfin Anandhika</h4>
-              <p className="text-gray-600">Web Developer Pemula | Batam, Indonesia</p>
+              <p className="text-gray-600">{t('contact.footer')}</p>
             </div>
             <p className="text-sm text-gray-500">
-              © 2024 Alfin Anandhika. Dibuat dengan ❤️ menggunakan React & Tailwind CSS
+              {t('contact.copyright')}
             </p>
           </div>
         </div>

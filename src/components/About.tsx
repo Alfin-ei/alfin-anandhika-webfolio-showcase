@@ -1,33 +1,32 @@
 
 import { Calendar, MapPin, Mail, Phone } from 'lucide-react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Tentang Saya</h2>
-            <p className="text-lg text-gray-600">Kenali lebih dekat profil dan perjalanan saya</p>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">{t('about.title')}</h2>
+            <p className="text-lg text-gray-600">{t('about.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Profil Singkat</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t('about.profileTitle')}</h3>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Halo! Saya Alfin Anandhika, seorang web developer pemula yang penuh semangat untuk belajar dan berkembang. 
-                Meskipun masih di tahap awal karir, saya memiliki dedikasi tinggi untuk menguasai teknologi web modern 
-                dan siap menghadapi tantangan baru dalam dunia programming.
+                {t('about.profileDesc1')}
               </p>
               <p className="text-gray-700 mb-6 leading-relaxed">
-                Saya percaya bahwa setiap expert pernah menjadi pemula, dan saya berkomitmen untuk terus belajar, 
-                berlatih, dan mengembangkan skill saya setiap hari. Dengan mindset growth dan keingintahuan yang tinggi, 
-                saya yakin dapat berkontribusi positif dalam setiap proyek yang saya kerjakan.
+                {t('about.profileDesc2')}
               </p>
             </div>
 
             <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-2xl font-semibold text-gray-900 mb-6">Informasi Personal</h3>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-6">{t('about.personalInfo')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <Calendar className="text-blue-600" size={20} />
