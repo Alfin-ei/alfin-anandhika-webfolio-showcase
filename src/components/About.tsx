@@ -29,19 +29,19 @@ const About = () => {
               <h3 className="text-2xl font-semibold deep-space-text mb-6">{t('about.personalInfo')}</h3>
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <Calendar className="deep-space-primary" size={20} />
-                  <span className="text-gray-300">27 Juni 2003</span>
+                  <Calendar className="neon-blue" size={20} />
+                  <span className="text-gray-300">27 Juli 2003</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin className="deep-space-primary" size={20} />
+                  <MapPin className="neon-pink" size={20} />
                   <span className="text-gray-300">Batam, Kepulauan Riau, Indonesia</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="deep-space-primary" size={20} />
+                  <Mail className="neon-cyan" size={20} />
                   <span className="text-gray-300">anandhikaalfin@gmail.com</span>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone className="deep-space-primary" size={20} />
+                  <Phone className="neon-blue" size={20} />
                   <span className="text-gray-300">+62 823-8397-3992</span>
                 </div>
               </div>

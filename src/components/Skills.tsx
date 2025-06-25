@@ -8,7 +8,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.htmlCss'),
-      icon: <Globe className="deep-space-primary" size={24} />,
+      icon: <Globe className="neon-blue" size={24} />,
       skills: language === 'id' ? 
         ["HTML5 Dasar", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"] :
         ["Basic HTML5", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"],
@@ -16,7 +16,7 @@ const Skills = () => {
     },
     {
       title: t('skills.javascript'),
-      icon: <Code2 className="deep-space-accent" size={24} />,
+      icon: <Code2 className="neon-cyan" size={24} />,
       skills: language === 'id' ?
         ["JavaScript Dasar", "DOM Manipulation", "Event Handling", "ES6 Basics"] :
         ["Basic JavaScript", "DOM Manipulation", "Event Handling", "ES6 Basics"],
@@ -24,7 +24,7 @@ const Skills = () => {
     },
     {
       title: t('skills.react'),
-      icon: <Database className="deep-space-secondary" size={24} />,
+      icon: <Database className="neon-pink" size={24} />,
       skills: language === 'id' ?
         ["Komponen Dasar", "Props & State", "React Hooks", "Event Handling"] :
         ["Basic Components", "Props & State", "React Hooks", "Event Handling"],
@@ -40,13 +40,13 @@ const Skills = () => {
     },
     {
       title: t('skills.learning'),
-      icon: <BookOpen className="text-purple-400" size={24} />,
+      icon: <BookOpen className="neon-blue" size={24} />,
       skills: ["Node.js", "Express.js", "Database", "API"],
       level: t('skills.level.dalamProses')
     },
     {
       title: t('skills.softSkills'),
-      icon: <Smartphone className="text-orange-400" size={24} />,
+      icon: <Smartphone className="neon-pink" size={24} />,
       skills: language === 'id' ?
         ["Semangat Belajar", "Problem Solving", "Google-fu", "YouTube University"] :
         ["Learning Enthusiasm", "Problem Solving", "Google-fu", "YouTube University"],
@@ -65,20 +65,20 @@ const Skills = () => {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="deep-space-bg p-6 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/10">
+              <div key={index} className="deep-space-bg p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:neon-glow-cyan">
                 <div className="flex items-center gap-3 mb-4">
                   {category.icon}
                   <h3 className="text-xl font-semibold deep-space-text">{category.title}</h3>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block bg-purple-900/30 text-purple-300 text-sm px-3 py-1 rounded-full">
+                  <span className="inline-block neon-gradient-alt text-white text-sm px-3 py-1 rounded-full">
                     {category.level}
                   </span>
                 </div>
                 <ul className="space-y-2">
                   {category.skills.map((skill, skillIndex) => (
                     <li key={skillIndex} className="text-gray-300 flex items-center gap-2">
-                      <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                      <div className="w-2 h-2 rounded-full neon-gradient"></div>
                       {skill}
                     </li>
                   ))}

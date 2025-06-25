@@ -37,12 +37,18 @@
 
     --radius: 0.5rem;
 
-    /* Deep Space Light Theme */
+    /* Neon Color Palette */
+    --neon-blue: #0236a5;
+    --neon-pink: #fc0369;
+    --neon-cyan: #0585c6;
+    --neon-dark-blue: #091221;
+    
+    /* Deep Space with Neon Accents */
     --deep-space-bg: 248 24% 10%;
     --deep-space-surface: 248 20% 15%;
-    --deep-space-primary: 263 70% 60%;
-    --deep-space-secondary: 280 50% 70%;
-    --deep-space-accent: 195 100% 70%;
+    --deep-space-primary: 213 100% 35%;
+    --deep-space-secondary: 340 100% 50%;
+    --deep-space-accent: 197 100% 59%;
   }
 
   .dark {
@@ -74,12 +80,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 263 70% 50%;
 
-    /* Deep Space Dark Theme */
-    --deep-space-bg: 248 50% 5%;
-    --deep-space-surface: 248 30% 8%;
-    --deep-space-primary: 263 80% 70%;
-    --deep-space-secondary: 280 60% 80%;
-    --deep-space-accent: 195 100% 80%;
+    /* Neon Dark Mode */
+    --neon-blue: #0585c6;
+    --neon-pink: #fc0369;
+    --neon-cyan: #23a6d5;
+    --neon-dark-blue: #091221;
+    
+    /* Deep Space Dark Theme with Neon */
+    --deep-space-bg: 218 50% 5%;
+    --deep-space-surface: 218 30% 8%;
+    --deep-space-primary: 213 100% 50%;
+    --deep-space-secondary: 340 100% 60%;
+    --deep-space-accent: 197 100% 70%;
   }
 }
 
@@ -90,6 +102,27 @@
 
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Neon Color Classes */
+  .neon-blue {
+    color: var(--neon-blue);
+  }
+
+  .neon-pink {
+    color: var(--neon-pink);
+  }
+
+  .neon-cyan {
+    color: var(--neon-cyan);
+  }
+
+  .neon-gradient {
+    background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-cyan));
+  }
+
+  .neon-gradient-alt {
+    background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
   }
 
   .deep-space-gradient {
@@ -114,5 +147,18 @@
 
   .deep-space-accent {
     color: hsl(var(--deep-space-accent));
+  }
+
+  /* Neon Glow Effects */
+  .neon-glow-blue {
+    box-shadow: 0 0 20px var(--neon-blue);
+  }
+
+  .neon-glow-pink {
+    box-shadow: 0 0 20px var(--neon-pink);
+  }
+
+  .neon-glow-cyan {
+    box-shadow: 0 0 20px var(--neon-cyan);
   }
 }
