@@ -14,7 +14,7 @@ const CursorAnimation = () => {
     const handleMouseLeave = () => setCursorVariant('default');
 
     // Add event listeners for interactive elements
-    const interactiveElements = document.querySelectorAll('button, a, .professional-hover');
+    const interactiveElements = document.querySelectorAll('button, a, .hover-effect');
     
     window.addEventListener('mousemove', updateMousePosition);
     
