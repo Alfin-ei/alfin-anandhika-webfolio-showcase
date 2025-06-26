@@ -3,53 +3,45 @@ import React, { useEffect, useState } from 'react';
 
 const CursorAnimation = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+  const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+    const updateMousePosition = (ev: MouseEvent) => {
+      setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
 
-    const handleMouseEnter = () => setIsHovering(true);
-    const handleMouseLeave = () => setIsHovering(false);
+    const updateTrailPosition = () => {
+      setTrailPosition(prevPos => ({
+        x: prevPos.x + (mousePosition.x - prevPos.x) * 0.1,
+        y: prevPos.y + (mousePosition.y - prevPos.y) * 0.1,
+      }));
+    };
 
-    // Add hover listeners to interactive elements
-    const interactiveElements = document.querySelectorAll('button, a, .interactive');
-    interactiveElements.forEach(el => {
-      el.addEventListener('mouseenter', handleMouseEnter);
-      el.addEventListener('mouseleave', handleMouseLeave);
-    });
-
-    document.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', updateMousePosition);
+    const trailInterval = setInterval(updateTrailPosition, 16);
 
     return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      interactiveElements.forEach(el => {
-        el.removeEventListener('mouseenter', handleMouseEnter);
-        el.removeEventListener('mouseleave', handleMouseLeave);
-      });
+      window.removeEventListener('mousemove', updateMousePosition);
+      clearInterval(trailInterval);
     };
-  }, []);
+  }, [mousePosition.x, mousePosition.y]);
 
   return (
     <>
-      {/* Main cursor dot */}
       <div
-        className="cursor-dot"
+        className="manga-cursor-dot"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 1.5 : 1})`,
+          transform: 'translate(-50%, -50%)',
         }}
       />
-      
-      {/* Cursor trail */}
       <div
-        className="cursor-trail"
+        className="manga-cursor-trail"
         style={{
-          left: `${mousePosition.x}px`,
-          top: `${mousePosition.y}px`,
-          transform: `translate(-50%, -50%) scale(${isHovering ? 2 : 1})`,
+          left: `${trailPosition.x}px`,
+          top: `${trailPosition.y}px`,
+          transform: 'translate(-50%, -50%)',
         }}
       />
     </>

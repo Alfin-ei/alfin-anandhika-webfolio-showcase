@@ -4,20 +4,30 @@ import React from 'react';
 const BackgroundAnimation = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Animated Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 animate-gradient-x"></div>
+      {/* Manga Background Base */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
       
-      {/* Floating Liquid Shapes */}
-      <div className="liquid-container">
-        <div className="liquid-shape liquid-shape-1"></div>
-        <div className="liquid-shape liquid-shape-2"></div>
-        <div className="liquid-shape liquid-shape-3"></div>
-        <div className="liquid-shape liquid-shape-4"></div>
-        <div className="liquid-shape liquid-shape-5"></div>
+      {/* Manga Halftone Pattern */}
+      <div className="absolute inset-0 manga-halftone"></div>
+      
+      {/* Manga Liquid Energy Effects */}
+      <div className="manga-liquid-container">
+        <div className="manga-liquid-shape manga-liquid-1"></div>
+        <div className="manga-liquid-shape manga-liquid-2"></div>
+        <div className="manga-liquid-shape manga-liquid-3"></div>
+        <div className="manga-liquid-shape manga-liquid-4"></div>
       </div>
       
-      {/* Glassmorphism Overlay */}
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-[0.5px]"></div>
+      {/* Speed Lines Effect */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent transform -rotate-12 animate-pulse"></div>
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent transform rotate-12 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent transform -rotate-6 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent transform rotate-6 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+      </div>
+      
+      {/* Manga Style Overlay */}
+      <div className="absolute inset-0 bg-black/30"></div>
     </div>
   );
 };

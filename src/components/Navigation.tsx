@@ -16,95 +16,97 @@ const Navigation = () => {
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 glass-nav">
+    <nav className="fixed top-0 left-0 right-0 z-50 manga-nav">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <div className="text-2xl font-bold glass-text">
-            Alfin Anandhika
+          <div className="text-2xl font-bold manga-text-gradient">
+            ALFIN • ANANDHIKA
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            <button onClick={() => scrollToSection('home')} className="text-white/90 hover:text-white transition-colors interactive">
+          <div className="hidden md:flex items-center space-x-6">
+            <button onClick={() => scrollToSection('home')} className="text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
               {t('nav.home')}
             </button>
-            <button onClick={() => scrollToSection('about')} className="text-white/90 hover:text-white transition-colors interactive">
+            <button onClick={() => scrollToSection('about')} className="text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
               {t('nav.about')}
             </button>
-            <button onClick={() => scrollToSection('skills')} className="text-white/90 hover:text-white transition-colors interactive">
+            <button onClick={() => scrollToSection('skills')} className="text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
               {t('nav.skills')}
             </button>
-            <button onClick={() => scrollToSection('portfolio')} className="text-white/90 hover:text-white transition-colors interactive">
+            <button onClick={() => scrollToSection('portfolio')} className="text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
               {t('nav.portfolio')}
             </button>
-            <button onClick={() => scrollToSection('contact')} className="text-white/90 hover:text-white transition-colors interactive">
+            <button onClick={() => scrollToSection('contact')} className="text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
               {t('nav.contact')}
             </button>
             
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg glass-card hover:bg-white/10 transition-colors interactive"
+              className="manga-card px-3 py-2 rounded-lg bg-black/50 hover:bg-red-500/20 transition-colors manga-interactive"
             >
-              {theme === 'light' ? <Moon size={16} className="text-purple-300" /> : <Sun size={16} className="text-yellow-300" />}
+              {theme === 'light' ? <Moon size={18} className="text-cyan-400" /> : <Sun size={18} className="text-yellow-400" />}
             </button>
             
             {/* Language Toggle */}
             <button
               onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg glass-card hover:bg-white/10 transition-colors interactive"
+              className="manga-card px-3 py-2 rounded-lg bg-black/50 hover:bg-red-500/20 transition-colors manga-interactive flex items-center gap-2"
             >
-              <Languages size={16} className="text-blue-300" />
-              <span className="text-sm font-medium text-white">{language.toUpperCase()}</span>
+              <Languages size={18} className="text-red-400" />
+              <span className="text-sm font-bold text-white">{language.toUpperCase()}</span>
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden text-white interactive"
+            className="md:hidden text-white manga-interactive"
             onClick={() => setIsOpen(!isOpen)}
           >
-            {isOpen ? <X size={24} /> : <Menu size={24} />}
+            <div className="manga-card p-2 rounded-lg bg-black/50">
+              {isOpen ? <X size={24} /> : <Menu size={24} />}
+            </div>
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden mt-4 py-4 border-t border-white/10">
+          <div className="md:hidden mt-4 py-4 border-t-2 border-red-500">
             <div className="flex flex-col space-y-4">
-              <button onClick={() => scrollToSection('home')} className="text-left text-white/90 hover:text-white transition-colors interactive">
+              <button onClick={() => scrollToSection('home')} className="text-left text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
                 {t('nav.home')}
               </button>
-              <button onClick={() => scrollToSection('about')} className="text-left text-white/90 hover:text-white transition-colors interactive">
+              <button onClick={() => scrollToSection('about')} className="text-left text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
                 {t('nav.about')}
               </button>
-              <button onClick={() => scrollToSection('skills')} className="text-left text-white/90 hover:text-white transition-colors interactive">
+              <button onClick={() => scrollToSection('skills')} className="text-left text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
                 {t('nav.skills')}
               </button>
-              <button onClick={() => scrollToSection('portfolio')} className="text-left text-white/90 hover:text-white transition-colors interactive">
+              <button onClick={() => scrollToSection('portfolio')} className="text-left text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
                 {t('nav.portfolio')}
               </button>
-              <button onClick={() => scrollToSection('contact')} className="text-left text-white/90 hover:text-white transition-colors interactive">
+              <button onClick={() => scrollToSection('contact')} className="text-left text-white font-semibold hover:text-red-400 transition-colors manga-interactive uppercase tracking-wider">
                 {t('nav.contact')}
               </button>
               
-              {/* Mobile Theme Toggle */}
-              <button
-                onClick={toggleTheme}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg glass-card hover:bg-white/10 transition-colors w-fit interactive"
-              >
-                {theme === 'light' ? <Moon size={16} className="text-purple-300" /> : <Sun size={16} className="text-yellow-300" />}
-                <span className="text-sm font-medium text-white">{theme === 'light' ? 'Dark' : 'Light'}</span>
-              </button>
-              
-              {/* Mobile Language Toggle */}
-              <button
-                onClick={toggleLanguage}
-                className="flex items-center gap-2 px-3 py-2 rounded-lg glass-card hover:bg-white/10 transition-colors w-fit interactive"
-              >
-                <Languages size={16} className="text-blue-300" />
-                <span className="text-sm font-medium text-white">{language.toUpperCase()}</span>
-              </button>
+              {/* Mobile Controls */}
+              <div className="flex gap-4 pt-2">
+                <button
+                  onClick={toggleTheme}
+                  className="manga-card px-3 py-2 rounded-lg bg-black/50 hover:bg-red-500/20 transition-colors manga-interactive"
+                >
+                  {theme === 'light' ? <Moon size={18} className="text-cyan-400" /> : <Sun size={18} className="text-yellow-400" />}
+                </button>
+                
+                <button
+                  onClick={toggleLanguage}
+                  className="manga-card px-3 py-2 rounded-lg bg-black/50 hover:bg-red-500/20 transition-colors manga-interactive flex items-center gap-2"
+                >
+                  <Languages size={18} className="text-red-400" />
+                  <span className="text-sm font-bold text-white">{language.toUpperCase()}</span>
+                </button>
+              </div>
             </div>
           </div>
         )}
