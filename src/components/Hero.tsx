@@ -13,73 +13,72 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center pt-20 relative">
       <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto scroll-animate">
-          <div className="mb-8">
-            {/* Manga Style Avatar */}
-            <div className="w-40 h-40 mx-auto mb-8 rounded-full manga-gradient flex items-center justify-center manga-card manga-interactive relative overflow-hidden">
-              <Code size={60} className="text-white relative z-10" />
-              <div className="absolute inset-0 bg-black/20 rounded-full"></div>
+        <div className="max-w-4xl mx-auto">
+          <div className="mb-8 animate-on-scroll">
+            {/* Professional Avatar */}
+            <div className="w-32 h-32 mx-auto mb-8 rounded-full gradient-primary flex items-center justify-center glass-card professional-hover relative overflow-hidden">
+              <Code size={50} className="text-white relative z-10" />
             </div>
             
-            {/* Manga Speech Bubble Intro */}
-            <div className="speech-bubble p-6 mb-8 mx-auto max-w-md manga-interactive">
-              <h1 className="text-3xl font-bold mb-2">
-                Yo! I'm <span className="manga-text-gradient">ALFIN</span>
+            {/* Professional Introduction */}
+            <div className="glass-card p-6 mb-8 mx-auto max-w-md professional-hover">
+              <h1 className="text-2xl font-bold mb-2 text-foreground">
+                Hello, I'm <span className="gradient-text">ALFIN</span>
               </h1>
               <div className="flex items-center justify-center gap-2">
-                <Zap size={20} className="text-red-500" />
-                <span className="font-semibold">Ready to Code!</span>
-                <Zap size={20} className="text-red-500" />
+                <Zap size={18} className="text-blue-500" />
+                <span className="font-medium text-foreground">Full Stack Developer</span>
+                <Zap size={18} className="text-blue-500" />
               </div>
             </div>
 
-            <h2 className="text-4xl md:text-5xl font-bold manga-neon-text mb-6">
+            <h2 className="text-4xl md:text-6xl font-bold gradient-text mb-6 animate-slide-left">
               {t('hero.title')}
             </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto font-medium">
+            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto font-medium animate-slide-right">
               {t('hero.description')}
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12 animate-scale">
             <button 
               onClick={() => scrollToSection('portfolio')}
-              className="px-8 py-4 manga-button rounded-lg font-bold manga-interactive text-lg"
+              className="btn-primary professional-hover"
             >
               {t('hero.viewPortfolio')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
-              className="px-8 py-4 bg-transparent text-white rounded-lg font-bold manga-interactive border-3 border-white hover:bg-white hover:text-black transition-all duration-300 text-lg"
+              className="btn-secondary professional-hover"
             >
               {t('hero.contactMe')}
             </button>
           </div>
 
-          {/* Manga Style Status Bar */}
-          <div className="flex justify-center items-center gap-8 text-white/80 mb-8">
-            <div className="manga-card px-4 py-2 rounded-full bg-black/80 backdrop-blur-sm manga-interactive">
-              <div className="flex items-center gap-2">
-                <Coffee size={20} className="text-yellow-400" />
-                <span className="font-semibold text-white">{t('hero.fueledByCoffee')}</span>
+          {/* Professional Status Cards */}
+          <div className="flex justify-center items-center gap-8 text-muted-foreground mb-8 animate-on-scroll">
+            <div className="glass-card px-6 py-3 professional-hover">
+              <div className="flex items-center gap-3">
+                <Coffee size={20} className="text-orange-500" />
+                <span className="font-medium text-foreground">{t('hero.fueledByCoffee')}</span>
               </div>
             </div>
-            <div className="manga-card px-4 py-2 rounded-full bg-black/80 backdrop-blur-sm manga-interactive">
-              <div className="flex items-center gap-2">
-                <Code size={20} className="text-cyan-400" />
-                <span className="font-semibold text-white">{t('hero.passionateCoder')}</span>
+            <div className="glass-card px-6 py-3 professional-hover">
+              <div className="flex items-center gap-3">
+                <Code size={20} className="text-blue-500" />
+                <span className="font-medium text-foreground">{t('hero.passionateCoder')}</span>
               </div>
             </div>
           </div>
 
-          {/* Animated Arrow */}
-          <div className="mt-12">
+          {/* Scroll Indicator */}
+          <div className="mt-12 animate-on-scroll">
             <button 
               onClick={() => scrollToSection('about')} 
-              className="manga-interactive animate-bounce"
+              className="professional-hover animate-bounce"
             >
-              <div className="manga-card p-3 rounded-full bg-red-500/20 backdrop-blur-sm">
-                <ArrowDown size={24} className="text-red-400" />
+              <div className="glass-card p-3 rounded-full">
+                <ArrowDown size={24} className="text-blue-500" />
               </div>
             </button>
           </div>

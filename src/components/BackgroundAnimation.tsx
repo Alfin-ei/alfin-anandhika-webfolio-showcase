@@ -4,30 +4,36 @@ import React from 'react';
 const BackgroundAnimation = () => {
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden">
-      {/* Manga Background Base */}
-      <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black"></div>
+      {/* Professional Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 dark:from-slate-950 dark:via-blue-950 dark:to-slate-950"></div>
       
-      {/* Manga Halftone Pattern */}
-      <div className="absolute inset-0 manga-halftone"></div>
+      {/* Animated Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-animated opacity-20"></div>
       
-      {/* Manga Liquid Energy Effects */}
-      <div className="manga-liquid-container">
-        <div className="manga-liquid-shape manga-liquid-1"></div>
-        <div className="manga-liquid-shape manga-liquid-2"></div>
-        <div className="manga-liquid-shape manga-liquid-3"></div>
-        <div className="manga-liquid-shape manga-liquid-4"></div>
+      {/* Floating Geometric Shapes */}
+      <div className="floating-shapes">
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
+        <div className="floating-shape"></div>
       </div>
       
-      {/* Speed Lines Effect */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-red-500 to-transparent transform -rotate-12 animate-pulse"></div>
-        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent transform rotate-12 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-yellow-500 to-transparent transform -rotate-6 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-pink-500 to-transparent transform rotate-6 animate-pulse" style={{ animationDelay: '0.5s' }}></div>
+      {/* Professional Grid Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `
+            linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: '50px 50px'
+        }}></div>
       </div>
       
-      {/* Manga Style Overlay */}
-      <div className="absolute inset-0 bg-black/30"></div>
+      {/* Subtle Light Effects */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl"></div>
+      
+      {/* Professional Overlay */}
+      <div className="absolute inset-0 bg-background/80 dark:bg-background/90"></div>
     </div>
   );
 };

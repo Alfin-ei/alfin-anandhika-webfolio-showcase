@@ -3,33 +3,39 @@ import React, { useEffect, useState } from 'react';
 
 const CursorAnimation = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [trailPosition, setTrailPosition] = useState({ x: 0, y: 0 });
+  const [cursorVariant, setCursorVariant] = useState('default');
 
   useEffect(() => {
     const updateMousePosition = (ev: MouseEvent) => {
       setMousePosition({ x: ev.clientX, y: ev.clientY });
     };
 
-    const updateTrailPosition = () => {
-      setTrailPosition(prevPos => ({
-        x: prevPos.x + (mousePosition.x - prevPos.x) * 0.1,
-        y: prevPos.y + (mousePosition.y - prevPos.y) * 0.1,
-      }));
-    };
+    const handleMouseEnter = () => setCursorVariant('hover');
+    const handleMouseLeave = () => setCursorVariant('default');
 
+    // Add event listeners for interactive elements
+    const interactiveElements = document.querySelectorAll('button, a, .professional-hover');
+    
     window.addEventListener('mousemove', updateMousePosition);
-    const trailInterval = setInterval(updateTrailPosition, 16);
+    
+    interactiveElements.forEach((el) => {
+      el.addEventListener('mouseenter', handleMouseEnter);
+      el.addEventListener('mouseleave', handleMouseLeave);
+    });
 
     return () => {
       window.removeEventListener('mousemove', updateMousePosition);
-      clearInterval(trailInterval);
+      interactiveElements.forEach((el) => {
+        el.removeEventListener('mouseenter', handleMouseEnter);
+        el.removeEventListener('mouseleave', handleMouseLeave);
+      });
     };
-  }, [mousePosition.x, mousePosition.y]);
+  }, []);
 
   return (
     <>
       <div
-        className="manga-cursor-dot"
+        className="cursor-dot"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -37,11 +43,11 @@ const CursorAnimation = () => {
         }}
       />
       <div
-        className="manga-cursor-trail"
+        className="cursor-outline"
         style={{
-          left: `${trailPosition.x}px`,
-          top: `${trailPosition.y}px`,
-          transform: 'translate(-50%, -50%)',
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+          transform: `translate(-50%, -50%) scale(${cursorVariant === 'hover' ? 1.5 : 1})`,
         }}
       />
     </>
