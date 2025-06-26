@@ -8,7 +8,7 @@ const Skills = () => {
   const skillCategories = [
     {
       title: t('skills.htmlCss'),
-      icon: <Globe className="neon-blue" size={24} />,
+      icon: <Globe className="text-blue-300" size={24} />,
       skills: language === 'id' ? 
         ["HTML5 Dasar", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"] :
         ["Basic HTML5", "CSS3", "Flexbox", "Grid Layout", "Responsive Design"],
@@ -16,7 +16,7 @@ const Skills = () => {
     },
     {
       title: t('skills.javascript'),
-      icon: <Code2 className="neon-cyan" size={24} />,
+      icon: <Code2 className="text-cyan-300" size={24} />,
       skills: language === 'id' ?
         ["JavaScript Dasar", "DOM Manipulation", "Event Handling", "ES6 Basics"] :
         ["Basic JavaScript", "DOM Manipulation", "Event Handling", "ES6 Basics"],
@@ -24,7 +24,7 @@ const Skills = () => {
     },
     {
       title: t('skills.react'),
-      icon: <Database className="neon-pink" size={24} />,
+      icon: <Database className="text-purple-300" size={24} />,
       skills: language === 'id' ?
         ["Komponen Dasar", "Props & State", "React Hooks", "Event Handling"] :
         ["Basic Components", "Props & State", "React Hooks", "Event Handling"],
@@ -32,7 +32,7 @@ const Skills = () => {
     },
     {
       title: t('skills.tools'),
-      icon: <Palette className="text-green-400" size={24} />,
+      icon: <Palette className="text-green-300" size={24} />,
       skills: language === 'id' ?
         ["VS Code", "Git (Dasar)", "Browser DevTools", "Tailwind CSS"] :
         ["VS Code", "Git (Basic)", "Browser DevTools", "Tailwind CSS"],
@@ -40,13 +40,13 @@ const Skills = () => {
     },
     {
       title: t('skills.learning'),
-      icon: <BookOpen className="neon-blue" size={24} />,
+      icon: <BookOpen className="text-blue-300" size={24} />,
       skills: ["Node.js", "Express.js", "Database", "API"],
       level: t('skills.level.dalamProses')
     },
     {
       title: t('skills.softSkills'),
-      icon: <Smartphone className="neon-pink" size={24} />,
+      icon: <Smartphone className="text-pink-300" size={24} />,
       skills: language === 'id' ?
         ["Semangat Belajar", "Problem Solving", "Google-fu", "YouTube University"] :
         ["Learning Enthusiasm", "Problem Solving", "Google-fu", "YouTube University"],
@@ -55,29 +55,29 @@ const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-20 deep-space-surface">
+    <section id="skills" className="py-20 relative">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold deep-space-text mb-4">{t('skills.title')}</h2>
-            <p className="text-lg text-gray-400">{t('skills.subtitle')}</p>
+          <div className="text-center mb-16 scroll-animate">
+            <h2 className="text-4xl font-bold glass-text mb-4">{t('skills.title')}</h2>
+            <p className="text-lg text-white/70">{t('skills.subtitle')}</p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((category, index) => (
-              <div key={index} className="deep-space-bg p-6 rounded-lg border border-gray-700 hover:border-cyan-400 transition-all duration-300 hover:shadow-lg hover:neon-glow-cyan">
+              <div key={index} className="glass-card p-6 rounded-lg interactive scroll-animate">
                 <div className="flex items-center gap-3 mb-4">
                   {category.icon}
-                  <h3 className="text-xl font-semibold deep-space-text">{category.title}</h3>
+                  <h3 className="text-xl font-semibold text-white">{category.title}</h3>
                 </div>
                 <div className="mb-4">
-                  <span className="inline-block neon-gradient-alt text-white text-sm px-3 py-1 rounded-full">
+                  <span className="inline-block glassmorphism-gradient text-white text-sm px-3 py-1 rounded-full border border-white/20">
                     {category.level}
                   </span>
                 </div>
                 <ul className="space-y-2">
                   {category.skills.map((skill, skillIndex) => (
-                    <li key={skillIndex} className="text-gray-300 flex items-center gap-2">
+                    <li key={skillIndex} className="text-white/80 flex items-center gap-2">
                       <div className="w-2 h-2 rounded-full neon-gradient"></div>
                       {skill}
                     </li>
@@ -87,13 +87,13 @@ const Skills = () => {
             ))}
           </div>
 
-          <div className="mt-16 text-center">
-            <div className="deep-space-bg p-8 rounded-lg border border-gray-700 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-semibold deep-space-text mb-4">{t('skills.disclaimer.title')}</h3>
-              <p className="text-gray-300 leading-relaxed mb-4">
+          <div className="mt-16 text-center scroll-animate">
+            <div className="glass-card p-8 rounded-lg max-w-2xl mx-auto interactive">
+              <h3 className="text-2xl font-semibold text-white mb-4">{t('skills.disclaimer.title')}</h3>
+              <p className="text-white/80 leading-relaxed mb-4">
                 {t('skills.disclaimer.desc1')}
               </p>
-              <p className="text-gray-300 leading-relaxed">
+              <p className="text-white/80 leading-relaxed">
                 {t('skills.disclaimer.desc2')}
               </p>
             </div>

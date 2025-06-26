@@ -37,61 +37,36 @@
 
     --radius: 0.5rem;
 
-    /* Neon Color Palette */
-    --neon-blue: #0236a5;
-    --neon-pink: #fc0369;
-    --neon-cyan: #0585c6;
-    --neon-dark-blue: #091221;
-    
-    /* Deep Space with Neon Accents */
-    --deep-space-bg: 248 24% 10%;
-    --deep-space-surface: 248 20% 15%;
-    --deep-space-primary: 213 100% 35%;
-    --deep-space-secondary: 340 100% 50%;
-    --deep-space-accent: 197 100% 59%;
+    /* Glassmorphism & Neumorphic Colors */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --deep-purple: #1a0b2e;
+    --royal-blue: #16213e;
+    --electric-blue: #0f4c75;
+    --dark-violet: #0f0f23;
+    --soft-glass: rgba(255, 255, 255, 0.03);
   }
 
   .dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
-
     --card: 240 10% 3.9%;
     --card-foreground: 0 0% 98%;
-
     --popover: 240 10% 3.9%;
     --popover-foreground: 0 0% 98%;
-
     --primary: 263 70% 50%;
     --primary-foreground: 0 0% 98%;
-
     --secondary: 240 3.7% 15.9%;
     --secondary-foreground: 0 0% 98%;
-
     --muted: 240 3.7% 15.9%;
     --muted-foreground: 240 5% 64.9%;
-
     --accent: 240 3.7% 15.9%;
     --accent-foreground: 0 0% 98%;
-
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-
     --border: 240 3.7% 15.9%;
     --input: 240 3.7% 15.9%;
     --ring: 263 70% 50%;
-
-    /* Neon Dark Mode */
-    --neon-blue: #0585c6;
-    --neon-pink: #fc0369;
-    --neon-cyan: #23a6d5;
-    --neon-dark-blue: #091221;
-    
-    /* Deep Space Dark Theme with Neon */
-    --deep-space-bg: 218 50% 5%;
-    --deep-space-surface: 218 30% 8%;
-    --deep-space-primary: 213 100% 50%;
-    --deep-space-secondary: 340 100% 60%;
-    --deep-space-accent: 197 100% 70%;
   }
 }
 
@@ -102,63 +77,203 @@
 
   body {
     @apply bg-background text-foreground;
+    cursor: none;
+    overflow-x: hidden;
   }
 
-  /* Neon Color Classes */
-  .neon-blue {
-    color: var(--neon-blue);
+  /* Glassmorphism Effects */
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
   }
 
-  .neon-pink {
-    color: var(--neon-pink);
+  .glass-nav {
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
 
-  .neon-cyan {
-    color: var(--neon-cyan);
+  /* Liquid Animation Styles */
+  .liquid-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
   }
 
+  .liquid-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(40px);
+    opacity: 0.7;
+    animation: liquidFloat 20s infinite ease-in-out;
+  }
+
+  .liquid-shape-1 {
+    width: 300px;
+    height: 300px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+
+  .liquid-shape-2 {
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(45deg, #f093fb, #f5576c);
+    top: 50%;
+    right: 10%;
+    animation-delay: -5s;
+  }
+
+  .liquid-shape-3 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(45deg, #4facfe, #00f2fe);
+    bottom: 20%;
+    left: 20%;
+    animation-delay: -10s;
+  }
+
+  .liquid-shape-4 {
+    width: 250px;
+    height: 250px;
+    background: linear-gradient(45deg, #a8edea, #fed6e3);
+    top: 30%;
+    left: 50%;
+    animation-delay: -15s;
+  }
+
+  .liquid-shape-5 {
+    width: 180px;
+    height: 180px;
+    background: linear-gradient(45deg, #d299c2, #fef9d7);
+    bottom: 40%;
+    right: 30%;
+    animation-delay: -7s;
+  }
+
+  /* Cursor Animation Styles */
+  .cursor-dot {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.2s ease;
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.6);
+  }
+
+  .cursor-trail {
+    position: fixed;
+    width: 30px;
+    height: 30px;
+    border: 2px solid rgba(102, 126, 234, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.3s ease;
+  }
+
+  /* Gradient Animations */
   .neon-gradient {
-    background: linear-gradient(135deg, var(--neon-blue), var(--neon-pink), var(--neon-cyan));
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease infinite;
   }
 
-  .neon-gradient-alt {
-    background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan));
+  .glassmorphism-gradient {
+    background: linear-gradient(135deg, 
+      rgba(102, 126, 234, 0.1), 
+      rgba(118, 75, 162, 0.1), 
+      rgba(240, 147, 251, 0.1)
+    );
   }
 
-  .deep-space-gradient {
-    background: linear-gradient(135deg, hsl(var(--deep-space-primary)), hsl(var(--deep-space-secondary)));
+  /* Animation Keyframes */
+  @keyframes liquidFloat {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    }
+    25% {
+      transform: translateY(-50px) rotate(90deg);
+      border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+    }
+    50% {
+      transform: translateY(-100px) rotate(180deg);
+      border-radius: 50% 60% 30% 60% / 30% 60% 70% 40%;
+    }
+    75% {
+      transform: translateY(-50px) rotate(270deg);
+      border-radius: 60% 40% 60% 30% / 60% 30% 70% 40%;
+    }
   }
 
-  .deep-space-bg {
-    background-color: hsl(var(--deep-space-bg));
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 
-  .deep-space-surface {
-    background-color: hsl(var(--deep-space-surface));
+  @keyframes gradient-x {
+    0%, 100% {
+      transform: translateX(0%);
+    }
+    50% {
+      transform: translateX(100%);
+    }
   }
 
-  .deep-space-text {
-    color: hsl(var(--foreground));
+  .animate-gradient-x {
+    animation: gradient-x 15s ease infinite;
+    background-size: 200% 200%;
   }
 
-  .deep-space-primary {
-    color: hsl(var(--deep-space-primary));
+  /* Scroll Animation Classes */
+  .animate-slide-up {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
   }
 
-  .deep-space-accent {
-    color: hsl(var(--deep-space-accent));
+  /* Glassmorphism Text Effects */
+  .glass-text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.3));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
-  /* Neon Glow Effects */
-  .neon-glow-blue {
-    box-shadow: 0 0 20px var(--neon-blue);
+  /* Interactive Elements */
+  .interactive {
+    transition: all 0.3s ease;
   }
 
-  .neon-glow-pink {
-    box-shadow: 0 0 20px var(--neon-pink);
+  .interactive:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
   }
 
-  .neon-glow-cyan {
-    box-shadow: 0 0 20px var(--neon-cyan);
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--dark-violet);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #764ba2, #667eea);
   }
 }
